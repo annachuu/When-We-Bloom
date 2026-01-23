@@ -1,3 +1,5 @@
+// This program was used to test the ultrasonic sensor
+
 #define TRIG_PIN 8
 #define ECHO_PIN 7
 
@@ -17,10 +19,10 @@ void loop()
   delayMicroseconds(10);
   digitalWrite(TRIG_PIN, LOW);
 
-  // Measure the pulse width on the echo pin
+  // Measure pulse width on the echo pin
   long duration = pulseIn(ECHO_PIN, HIGH);
 
-  // If pulseIn returns 0, the echo wasn't detected, so we skip the calculation
+  // IF pulseIn returns 0, THEN echo wasn't detected, so skip the calculation
   if (duration == 0) 
   {
     Serial.println("No echo detected");
@@ -28,7 +30,7 @@ void loop()
   else 
   {
     // Calculate the distance in centimeters
-    float distance = (duration * 0.034) / 2;  // Speed of sound is 0.034 cm/us, and we divide by 2 to get the one-way distance
+    float distance = (duration * 0.034) / 2;  // Speed of sound is 0.034 cm/us, and divide by 2 to get the one-way distance
     Serial.print("Distance: ");
     Serial.print(distance);
     Serial.println(" cm");
