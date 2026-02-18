@@ -1,3 +1,5 @@
+// This program is used to test the PIR Motion Sensor
+
 int state = 0;
 void setup()
 {
