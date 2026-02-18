@@ -1,3 +1,5 @@
+// This program is used to test the Ultrasonic, PIR, and Stepper Motors altogether
+
 #include <Stepper.h>
 
 #define STEPS 2038             // steps per full revolution
