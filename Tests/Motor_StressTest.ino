@@ -1,4 +1,6 @@
 // This program was used to stress test the servo motor
+// Version 1: testing 3D model and motor duration
+
 #include <Servo.h>
 
 Servo myServo;
