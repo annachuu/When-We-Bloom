@@ -4,7 +4,7 @@
 Servo myServo;
 
 int startPos = 0;      // starting position
-int stressAngle = 80;  // how far the servo moves
+int stressAngle = 90;  // how far the servo moves
 
 void setup() 
 {
@@ -15,12 +15,10 @@ void setup()
 void loop() 
 {
   myServo.write(stressAngle);  // move to 80 degrees
-  delay(30000);                 // wait 1 second
+  delay(1000);                 // wait 1 second
 
   myServo.write(startPos);     // move back to 0 degrees
-  delay(30000);                 // wait 1 second
-
-  delay(30000);                // pause for 30 seconds
+  delay(5000);                 // pause for 5 seconds
 
   // repeats to see how long it will last (hoping a couple hours)
 }
