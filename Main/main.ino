@@ -14,12 +14,22 @@ MoToServo myServo3;
 int startPos = 0;
 int stressAngle = 70;
 
-// Distance thresholds (in cm)
-int farDistance = 50;     // fully closed
-int closeDistance = 30;   // fully open
+// stage distance ranges (cm)
+int stage1_far = 90;
+int stage1_close = 60;
+
+int stage2_far = 60;
+int stage2_close = 40;
+
+int stage3_far = 40;
+int stage3_close = 20;
+
+// // Distance thresholds (in cm)
+// int farDistance = 50;     // fully closed
+// int closeDistance = 30;   // fully open
 
 // Servo speed
-int servoSpeed = 30; // high num means faster
+int servoSpeed = 50; // high num means faster
 
 int currentTarget = startPos;
 
@@ -46,24 +56,34 @@ void setup()
 void loop() 
 {
   long distance = getDistance();
-
   int targetAngle;
 
-  // Map distance to angle
-  if (distance >= farDistance)
+  // Stage 0 (very far)
+  if (distance >= stage1_far)
   {
-    targetAngle = startPos;  // far distance will make it closed
+    targetAngle = 0;
   }
-  else if (distance <= closeDistance)
+  // Stage 1 (0–25°)
+  else if (distance < stage1_far && distance >= stage1_close)
   {
-    targetAngle = stressAngle;  // close distance will make it open
+    targetAngle = map(distance, stage1_far, stage1_close, 0, 25);
   }
+  // Stage 2 (25–50°)
+  else if (distance < stage2_far && distance >= stage2_close)
+  {
+    targetAngle = map(distance, stage2_far, stage2_close, 25, 50);
+  }
+  // Stage 3 (50–70°)
+  else if (distance < stage3_far && distance >= stage3_close)
+  {
+    targetAngle = map(distance, stage3_far, stage3_close, 50, 70);
+  }
+  // Very close means fully open
   else
   {
-    // gradual movement
-    targetAngle = map(distance, farDistance, closeDistance, startPos, stressAngle);
+    targetAngle = stressAngle;
   }
-
+  
   // Only update if target changes
   if (targetAngle != currentTarget)
   {
