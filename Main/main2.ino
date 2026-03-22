@@ -1,3 +1,6 @@
+// Difference: when in one place, it opens (no twitches like main.ino),but leave then it will close.
+//             main.ino will twitch when user stands still, but it has smoother moments otherwise
+
 #include <MobaTools.h>
 
 #define SERVO_PIN 10
