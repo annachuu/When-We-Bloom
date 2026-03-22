@@ -24,18 +24,17 @@ int stage2_close = 40;
 int stage3_far = 40;
 int stage3_close = 20;
 
-// // Distance thresholds (in cm)
-// int farDistance = 50;     // fully closed
-// int closeDistance = 30;   // fully open
-
 // Servo speed
 int servoSpeed = 50; // high num means faster
 
-int currentTarget = startPos;
-
+// Movement threshold
+long lastDistance = 0;
+int movementThreshold = 5;
 
 void setup() 
 {
+  Serial.begin(9600);
+  
   myServo1.attach(SERVO_PIN1);
   myServo2.attach(SERVO_PIN2);
   myServo3.attach(SERVO_PIN3);
@@ -50,6 +49,8 @@ void setup()
 
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
+
+  lastDistance = getDistance();
 }
 
 
@@ -57,42 +58,66 @@ void loop()
 {
   long distance = getDistance();
   int targetAngle;
+  int stage;
+
+ 
 
   // Stage 0 (very far)
   if (distance >= stage1_far)
   {
+    stage = 0;
     targetAngle = 0;
   }
   // Stage 1 (0–25°)
   else if (distance < stage1_far && distance >= stage1_close)
   {
+    stage = 1;
     targetAngle = map(distance, stage1_far, stage1_close, 0, 25);
   }
   // Stage 2 (25–50°)
   else if (distance < stage2_far && distance >= stage2_close)
   {
+    stage = 2;
     targetAngle = map(distance, stage2_far, stage2_close, 25, 50);
   }
   // Stage 3 (50–70°)
   else if (distance < stage3_far && distance >= stage3_close)
   {
-    targetAngle = map(distance, stage3_far, stage3_close, 50, 70);
+    stage = 3;
+    targetAngle = map(distance, stage3_far, stage3_close, 50, maxAngle);
   }
-  // Very close means fully open
   else
   {
-    targetAngle = stressAngle;
+    stage = 3;
+    targetAngle = maxAngle; // cap at 70°
   }
   
-  // Only update if target changes
-  if (targetAngle != currentTarget)
+  // move if distance change significantly
+  if (abs(distance - lastDistance) >= movementThreshold)
   {
+    Serial.println("------------------------------");
+    Serial.print("Distance: ");
+    Serial.print(distance);
+    Serial.println(" cm");
+
+    Serial.print("Stage: ");
+    Serial.println(stage);
+
+    Serial.print("Target Angle: ");
+    Serial.println(targetAngle);
+
     myServo1.write(targetAngle);
     myServo2.write(targetAngle);
     myServo3.write(targetAngle);
-    
-    currentTarget = targetAngle;
+
+    lastDistance = distance;
   }
+  else
+  {
+    Serial.print("IGNORED (small movement) -> ");
+    Serial.println(distance);
+  }
+
 
   delay(100);  // small delay for stability
 }
