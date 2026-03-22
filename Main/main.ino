@@ -1,10 +1,15 @@
 #include <MobaTools.h>
 
-#define SERVO_PIN 10
+#define SERVO_PIN1 10
+#define SERVO_PIN2 11
+#define SERVO_PIN3 12
+
 #define TRIG_PIN 2
 #define ECHO_PIN 3
 
-MoToServo myServo;
+MoToServo myServo1;
+MoToServo myServo2;
+MoToServo myServo3;
 
 int startPos = 0;
 int stressAngle = 70;
@@ -21,9 +26,17 @@ int currentTarget = startPos;
 
 void setup() 
 {
-  myServo.attach(SERVO_PIN);
-  myServo.setSpeed(servoSpeed);
-  myServo.write(startPos);
+  myServo1.attach(SERVO_PIN1);
+  myServo2.attach(SERVO_PIN2);
+  myServo3.attach(SERVO_PIN3);
+  
+  myServo1.setSpeed(servoSpeed);
+  myServo1.setSpeed(servoSpeed);
+  myServo2.setSpeed(servoSpeed);
+  
+  myServo1.write(startPos);
+  myServo2.write(startPos);
+  myServo3.write(startPos);
 
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
@@ -54,7 +67,10 @@ void loop()
   // Only update if target changes
   if (targetAngle != currentTarget)
   {
-    myServo.write(targetAngle);
+    myServo1.write(targetAngle);
+    myServo2.write(targetAngle);
+    myServo3.write(targetAngle);
+    
     currentTarget = targetAngle;
   }
 
