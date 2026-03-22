@@ -24,3 +24,6 @@ This repository contains the source codes and documentation for my capstone proj
 
 ## Author
 - Anna Chu
+
+## Credits
+- MobaTools Arduino Library
