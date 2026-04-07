@@ -7,7 +7,6 @@ This repository contains the source codes and documentation for my capstone proj
 
 ## Electrical Components
 - Ultrasonic Sensor
-- PIR Motion Sensor
 - Servo Motor
 - Breadboad
 - Power Module with Battery
