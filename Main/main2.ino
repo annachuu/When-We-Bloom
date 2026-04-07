@@ -28,14 +28,14 @@ MoToServo myServo3;
 int startPos = 0;
 int maxAngle = 70;
 
-int stage1_far = 120;
-int stage1_close = 90;
+int stage1_far = 95;
+int stage1_close = 70;
 
-int stage2_far = 90;
-int stage2_close = 70;
+int stage2_far = 70;
+int stage2_close = 55;
 
-int stage3_far = 70;
-int stage3_close = 50;
+int stage3_far = 55;
+int stage3_close = 40;
 
 int servoSpeed = 50;
 int movementThreshold = 5;
