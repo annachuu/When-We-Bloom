@@ -8,10 +8,9 @@ This repository contains the source codes and documentation for my capstone proj
 ## Electrical Components
 - Ultrasonic Sensor
 - PIR Motion Sensor
-- Stepper Motor
-- Stepper Motor Driver
-- Servo Motor (Optional Replacement?)
-- Breadboad Power Module with Battery
+- Servo Motor
+- Breadboad
+- Power Module with Battery
 - Jump Wire F/M
 
 (Yet to be incorporated)
