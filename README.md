@@ -11,11 +11,11 @@ This repository contains the source codes and documentation for my capstone proj
 - Breadboad
 - Power Module with Battery
 - Jump Wire F/M
+- RGB LEDs
 
 (Yet to be incorporated)
 - Audio Amplifier Module
 - Speaker
-- RGB LEDs
 
 ## Circuit Board
 - Arduino Uno R4
