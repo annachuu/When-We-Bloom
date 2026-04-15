@@ -24,4 +24,4 @@ This repository contains the source codes and documentation for my capstone proj
 - Anna Chu
 
 ## Credits
-- MobaTools Arduino Library - for servo motor speed function
+- **MobaTools Arduino Library** - for servo motor speed function
