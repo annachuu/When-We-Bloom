@@ -1,4 +1,4 @@
-// !!! Current program in use !!!
+// !!! Program used for Showcase !!!
 
 // Difference: uses multiple ultrasonic sensors
 
