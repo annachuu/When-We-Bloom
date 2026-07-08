@@ -21,10 +21,15 @@
 #define ECHO_PIN1 5
 
 // sensor 3
-#define TRIG_PIN1 6
-#define ECHO_PIN1 7
+#define TRIG_PIN2 6
+#define ECHO_PIN2 7
 
 // sensor 4
+// scratch 4th sensor
+// possibility: connect to analog pin A0 (TRIG_PIN3),
+//                                    A1 (ECHO_PIN3)
+//              then set pinMode A0 (TRIG_PIN3) to OUTPUT,
+//                               A1 (ECHO_PIN3) to INPUT
 
 //objects of servos
 MoToServo myServo0;
