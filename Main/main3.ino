@@ -61,6 +61,7 @@ int movementThreshold = 5;
 // last tracked distance
 long lastDistance0 = 0;
 long lastDistance1 = 0;
+long lastDistance2 = 0;
 
 void setup() 
 {
@@ -86,11 +87,17 @@ void setup()
   
   // Start at 0deg
   myServo0.write(startPos);
+  delay(100);
   myServo1.write(startPos);
+  delay(100);
   myServo2.write(startPos);
+  delay(100);
   myServo3.write(startPos);
+  delay(100);
   myServo4.write(startPos);
+  delay(100);
   myServo5.write(startPos);
+  delay(100);
 
   
   // Ultrasonic pins
@@ -106,14 +113,18 @@ void setup()
   // Initial readings starst at 0
   lastDistance0 = 0;
   lastDistance1 = 0;
+  lastDistance2 = 0;
 }
 
 
 void loop() 
 {
   long distance0 = getDistance(TRIG_PIN0, ECHO_PIN0);
+  delay(20);                                          // prevent sensors sensing each other's sound wave echos
   long distance1 = getDistance(TRIG_PIN1, ECHO_PIN1);
+  delay(20);
   long distance2 = getDistance(TRIG_PIN2, ECHO_PIN2);
+
   
   // sensor 0 controls motor 0 and 1
   if (distance0 != -1)
@@ -189,11 +200,11 @@ void loop()
   else
   {
     // No object → STOP
-    myServo0.write(0);
-    myServo1.write(0);
+    myServo4.write(0);
+    myServo5.write(0);
   }
 
-  delay(100);
+  delay(50);                          // CHANGE: 100 to 50
 }
 
 
