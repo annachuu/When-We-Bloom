@@ -100,6 +100,9 @@ void setup()
   pinMode(TRIG_PIN1, OUTPUT);
   pinMode(ECHO_PIN1, INPUT);
 
+  pinMode(TRIG_PIN2, OUTPUT);
+  pinMode(ECHO_PIN2, INPUT);
+
   // Initial readings starst at 0
   lastDistance0 = 0;
   lastDistance1 = 0;
