@@ -113,7 +113,8 @@ void loop()
 {
   long distance0 = getDistance(TRIG_PIN0, ECHO_PIN0);
   long distance1 = getDistance(TRIG_PIN1, ECHO_PIN1);
-
+  long distance2 = getDistance(TRIG_PIN2, ECHO_PIN2);
+  
   // sensor 0 controls motor 0 and 1
   if (distance0 != -1)
   {
@@ -164,6 +165,32 @@ void loop()
     // No object → STOP
     myServo2.write(0);
     myServo3.write(0);
+  }
+
+  // sensor 2 controls motor 4 and 5
+  if (distance2 != -1)
+  {
+    int angle2 = calculateAngle(distance2);
+
+    if (distance2 < stage1_far && abs(distance2 - lastDistance2) >= movementThreshold)
+    {
+      myServo4.write(angle2);
+      myServo5.write(angle2);
+
+      Serial.println("=== SENSOR 2 ACTIVE ===");
+      Serial.print("Distance: ");
+      Serial.println(distance2);
+      Serial.print("Angle: ");
+      Serial.println(angle2);
+
+      lastDistance2 = distance2;
+    }
+  }
+  else
+  {
+    // No object → STOP
+    myServo0.write(0);
+    myServo1.write(0);
   }
 
   delay(100);
