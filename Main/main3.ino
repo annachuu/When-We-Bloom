@@ -1,14 +1,16 @@
-// !!! Program used for Exhibition!!!
+// !!! Program used for Exhibition !!!
 
 // Difference: uses more sensors and motors
 
 #include <MobaTools.h>
 
 // servo pins
-#define SERVO_PIN0 10
-#define SERVO_PIN1 11
-#define SERVO_PIN2 12
-#define SERVO_PIN3 13
+#define SERVO_PIN0 8
+#define SERVO_PIN1 9
+#define SERVO_PIN2 10
+#define SERVO_PIN3 11
+#define SERVO_PIN4 12
+#define SERVO_PIN5 13
 
 // sensor 1
 #define TRIG_PIN0 2
@@ -18,11 +20,20 @@
 #define TRIG_PIN1 4
 #define ECHO_PIN1 5
 
+// sensor 3
+#define TRIG_PIN1 6
+#define ECHO_PIN1 7
+
+// sensor 4
+
 //objects of servos
 MoToServo myServo0;
 MoToServo myServo1;
 MoToServo myServo2;
 MoToServo myServo3;
+MoToServo myServo4;
+MoToServo myServo5;
+
 
 //global variables
 int startPos = 0;
@@ -55,19 +66,28 @@ void setup()
   myServo1.attach(SERVO_PIN1);
   myServo2.attach(SERVO_PIN2);
   myServo3.attach(SERVO_PIN3);
+  myServo4.attach(SERVO_PIN4);
+  myServo5.attach(SERVO_PIN5);
 
+  
   // Set speed
   myServo0.setSpeed(servoSpeed);
   myServo1.setSpeed(servoSpeed);
   myServo2.setSpeed(servoSpeed);
   myServo3.setSpeed(servoSpeed);
+  myServo4.setSpeed(servoSpeed);
+  myServo5.setSpeed(servoSpeed);
 
+  
   // Start at 0deg
   myServo0.write(startPos);
   myServo1.write(startPos);
   myServo2.write(startPos);
   myServo3.write(startPos);
+  myServo4.write(startPos);
+  myServo5.write(startPos);
 
+  
   // Ultrasonic pins
   pinMode(TRIG_PIN0, OUTPUT);
   pinMode(ECHO_PIN0, INPUT);
