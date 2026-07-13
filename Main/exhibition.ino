@@ -1,6 +1,6 @@
 // !!! Modified Program used for Exhibition !!!
 
-// Difference: uses more sensors and motors
+// Difference: uses more sensors and motors (per circuit)
 
 #include <MobaTools.h>
 
