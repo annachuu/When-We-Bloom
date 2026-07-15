@@ -9,7 +9,7 @@ This repository contains the source codes and documentation for my capstone proj
 - Ultrasonic Sensor
 - Servo Motor 
 - Breadboad 
-- Power Module with Battery (Exhibit: Refurbished old iMac Power Supply)
+- Power Module with Battery (Exhibition: Refurbished old iMac Power Supply)
 - Jump Wire F/M (14AWG & 10AWG)
 - Y-Splitter Cables
 - RGB LEDs
