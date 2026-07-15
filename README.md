@@ -7,10 +7,11 @@ This repository contains the source codes and documentation for my capstone proj
 
 ## Electrical Components
 - Ultrasonic Sensor
-- Servo Motor
-- Breadboad
-- Power Module with Battery
-- Jump Wire F/M
+- Servo Motor 
+- Breadboad 
+- Power Module with Battery 
+- Jump Wire F/M (14AWG & 10AWG)
+- Y-Splitter Cables
 - RGB LEDs
 
 (Yet to be incorporated)
