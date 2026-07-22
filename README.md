@@ -3,7 +3,7 @@
 This repository contains the source codes and documentation for my capstone project. The goal of this project is to see how natural gesture-based interaction communicate emotional ideas through physical and digital systems.
 
 ## Research Question
-**How to create a playful, gesture-based interactive installation that evokes wonder, openness, growth, and vulnearbility throughh physical-digital systems.**
+**"How can I create a playful, gesture-based interactive installation that evokes wonder, openness, growth, and vulnearbility through physical-digital systems ?"**
 
 ## Electrical Components
 - Ultrasonic Sensor
